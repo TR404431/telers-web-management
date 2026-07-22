@@ -1,0 +1,44 @@
+git add .
+git commit -m "init project"# Maven build output
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Compiled Java files
+*.class
+
+# Logs
+*.log
+logs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local environment and secret configuration
+.env
+.env.*
+application-local.yaml
+application-local.yml
+application-*.properties
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*~
+
+# IDE and tool caches
+.classpath
+.project
+.settings/
+.vscode/
+
+# Local uploaded/generated files
+uploads/
+images/

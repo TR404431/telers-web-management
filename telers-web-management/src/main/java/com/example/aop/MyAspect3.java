@@ -1,0 +1,22 @@
+package com.example.aop;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+
+@Slf4j
+@Component
+//@Aspect
+public class MyAspect3 {
+    //前置通知
+    @Before("execution(* com.itheima.service.*.*(..))")
+    public void before(){
+        log.info("MyAspect3 -> before ...");
+    }
+
+    //后置通知
+    @After("execution(* com.itheima.service.*.*(..))")
+    public void after(){
+        log.info("MyAspect3 ->  after ...");
+    }
+}

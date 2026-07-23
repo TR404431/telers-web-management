@@ -1,4 +1,5 @@
 package com.example.controller;
+import com.example.annotation.LogOperation;
 import com.example.pojo.Dept;
 import com.example.pojo.Emp;
 import com.example.pojo.Result;
@@ -19,6 +20,7 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
     @GetMapping
+    @LogOperation
     public Result list(){
         log.info("查询部门列表");
     List<Dept>  deptList = deptService.findAll();
@@ -36,24 +38,28 @@ public class DeptController {
 //        return Result.success();
 //    }
 //    第三种方式省略@RequestParam注解(前端传递的请求参数名与服务段方法形参名一致)
+    @LogOperation
     public Result delete(Integer id){
         log.info("根据id删除部门:{}",id);
         deptService.deleteById(id);
         return Result.success();
     }
     @PostMapping
+    @LogOperation
     public Result add(@RequestBody Dept dept){
         log.info("新增部门,dept:{}",dept);
         deptService.add(dept);
         return Result.success();
     }
     @GetMapping("/{id}")
+    @LogOperation
     public Result get(@PathVariable("id") Integer id){
         log.info("根据ID查询, id: {}" , id);
         Dept dept  = deptService.getById(id);
         return Result.success(dept);
     }
     @PutMapping
+    @LogOperation
     public Result update(@RequestBody Dept dept){
         log.info("修改部门, dept: {}" , dept);
         deptService.update(dept);
